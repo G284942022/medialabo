@@ -14,7 +14,7 @@ h1 {
 
 h2 {
 	padding: 5px;
-	background-image: linear-gradient(white, #ffefaf);
+	background-image: linear-gradient(to right,white, #ffefaf);
 }
 
 div#zentai {
