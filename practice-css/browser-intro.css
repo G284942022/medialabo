@@ -15,6 +15,7 @@ h1 {
 h2 {
 	border: solid 1px black;
 	padding: 5px;
+	background-image: linear-gradient(white, #ffefaf);
 }
 
 div#zentai {
@@ -27,7 +28,6 @@ div#zentai {
 div#zentai > div {
 	padding: 5px;
     background-color: #ffefaf;
-    background-image: linear-gradient(white, #ffefaf);
 }
 
 img[src="firefox_icon.png"] {
