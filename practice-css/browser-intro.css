@@ -13,7 +13,6 @@ h1 {
 }
 
 h2 {
-	border: solid 1px black;
 	padding: 5px;
 	background-image: linear-gradient(white, #ffefaf);
 }
