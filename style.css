@@ -1,0 +1,10 @@
+h1 {
+    background-color: gray;
+  }
+
+h2::after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid black;
+    margin-top: 0.5em;
+  }
