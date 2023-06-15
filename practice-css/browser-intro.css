@@ -9,6 +9,7 @@ p.info {
 
 h1 {
 	background-color: #7f7fcf;
+	text-shadow: navy 1px 0 10px;
 }
 
 h2 {
@@ -27,12 +28,12 @@ div#zentai {
 div#zentai > div {
 	margin-left: 5px;
 	background-color: #ffefaf;
+	background-image: linear-gradient(white, #ffefaf);
 }
 
-firefox_icon.png {
-    float: right;
-
-    width: 100px;
-    height: 100px;
-    margin: 10px 0 10px 10px;
+img[src="firefox_icon.png"] {
+	float: right;
+	width: 100px;
+	height: 100px;
+	margin: 10px 0 10px 10px;
 }
