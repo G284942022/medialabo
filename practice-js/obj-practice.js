@@ -6,10 +6,10 @@ let media = {
 
 console.log(media.adress);
 
-for (let i=0; i<ns.length; i=i+1) {
+for (let i=0; i<media.room.length; i=i+1) {
     console.log(media.room[i]);
 }
 
-for (let i=0; i<ns.length; i=i+1) {
+for (let i=0; i<media.department.length; i=i+1) {
     console.log(media.department[i]);
 }
