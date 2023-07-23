@@ -4,16 +4,45 @@
   <title>グルメ</title>
 </head>
 <body>
-  <div id="result"></div>
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <div id="sendRequest"></div>
 
+  <div id="result">
+
+    <tr>
+      <h2>検索結果1件目</h2>
+    </tr>
+    <tr>
+      <p>アクセス: 京王八王子駅を背にし右手に見えるローソンの隣のビル、ホテルザ・ビーの2階です。</p>
+      <p>住所: 東京都八王子市明神町４-6-12　ホテル・ザ・ビー八王子（旧八王子プラザホテル）2F</p>
+      <p>予算: 3001～4000円</p>
+      <p>キャッチコピー: 【サプライズ演出有】 結婚パーティー受付中</p>
+      <p>ジャンル: 居酒屋</p>
+      <p>営業時間: 月～日、祝日、祝前日: 17:00～21:00 （料理L.O. 20:00 ドリンクL.O. 20:00）</p>
+      <p>最寄駅: 京王八王子</p>
+      <p>サブジャンル: ダイニングバー・バル</p>
+    </tr>
+    <tr>
+      <h2>検索結果2件目</h2>
+    </tr>
+    <tr>
+      <p>アクセス: ＪＲ八王子駅北口徒歩1分/京王八王子駅徒歩3分</p>
+      <p>住所: 東京都八王子市東町12-14</p>
+      <p>予算: 2001～3000円</p>
+      <p>キャッチコピー: 2.5時間飲み放題付2000円~ 【★少人数様ソファー★】</p>
+      <p>ジャンル: 居酒屋</p>
+      <p>営業時間: 月～日、祝日、祝前日: 17:00～翌5:00 （料理L.O. 翌3:00 ドリンクL.O. 翌4:00）</p>
+      <p>最寄駅: 八王子</p>
+      <p>サブジャンル: ダイニングバー・バル</p>
+    </tr>
+
+    <label for="kensaku">キーワード検索:</label>
+    <input type="text" name="word" id="find" size="10">
+    <button id="print">検索</button>
   <script src="gourmet.js"></script>
-	
-  <form action="https://www.nishita-lab.org/web-contents/jsons/hotpepper/{genre}.json" method="get">
-    <input type="search" name="search" placeholder="キーワードを入力">
-    <input type="submit" name="submit" value="検索">
-  </form>
-  
+
+  </div>
 </body>
 </html>
-
 

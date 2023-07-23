@@ -201,112 +201,36 @@ let data = {
 
 /////////// 課題3-2 ここからプログラムを書こう
 
-const resultDiv = document.getElementById('result');
-
-for (const shop of data.results.shop) {
-  const shopInfoDiv = document.createElement('div');
-
-  // 店名
-  const nameElement = document.createElement('h2');
-  nameElement.textContent = shop.name;
-  shopInfoDiv.appendChild(nameElement);
-
-  // ジャンル
-  const genreElement = document.createElement('p');
-  genreElement.textContent = 'ジャンル: ' + shop.genre.name;
-  shopInfoDiv.appendChild(genreElement);
-
-  // キャッチフレーズ
-  const catchElement = document.createElement('p');
-  catchElement.textContent = 'キャッチフレーズ: ' + shop.catch;
-  shopInfoDiv.appendChild(catchElement);
-
-  // アクセス方法
-  const accessElement = document.createElement('p');
-  accessElement.textContent = 'アクセス: ' + shop.access;
-  shopInfoDiv.appendChild(accessElement);
-
-  // 住所
-  const addressElement = document.createElement('p');
-  addressElement.textContent = '住所: ' + shop.address;
-  shopInfoDiv.appendChild(addressElement);
-
-  // 営業時間
-  const openElement = document.createElement('p');
-  openElement.textContent = '営業時間: ' + shop.open;
-  shopInfoDiv.appendChild(openElement);
-
-  // 定休日
-  const closeElement = document.createElement('p');
-  closeElement.textContent = '定休日: ' + shop.close;
-  shopInfoDiv.appendChild(closeElement);
-
-  // 予算
-  const budgetElement = document.createElement('p');
-  budgetElement.textContent = '予算: ' + shop.budget.average;
-  shopInfoDiv.appendChild(budgetElement);
-
-  // 席数
-  const capacityElement = document.createElement('p');
-  capacityElement.textContent = '席数: ' + shop.capacity;
-  shopInfoDiv.appendChild(capacityElement);
-
-  // 個室情報
-  const privateRoomElement = document.createElement('p');
-  privateRoomElement.textContent = '個室情報: ' + shop.private_room;
-  shopInfoDiv.appendChild(privateRoomElement);
-
-  // 宴会収容人数
-  const partyCapacityElement = document.createElement('p');
-  partyCapacityElement.textContent = '宴会収容人数: ' + shop.party_capacity;
-  shopInfoDiv.appendChild(partyCapacityElement);
-
-  // 禁煙席の有無
-  const nonSmokingElement = document.createElement('p');
-  nonSmokingElement.textContent = '禁煙席: ' + shop.non_smoking;
-  shopInfoDiv.appendChild(nonSmokingElement);
-
-  // 無料Wi-Fiの有無
-  const wifiElement = document.createElement('p');
-  wifiElement.textContent = '無料Wi-Fi: ' + shop.wifi;
-  shopInfoDiv.appendChild(wifiElement);
-
-  // カード利用可否
-  const cardElement = document.createElement('p');
-  cardElement.textContent = 'カード利用可: ' + shop.card;
-  shopInfoDiv.appendChild(cardElement);
-
-  // ネット予約URL
-  const netReservationElement = document.createElement('a');
-  netReservationElement.textContent = 'ネット予約';
-  netReservationElement.href = shop.urls.pc;
-  shopInfoDiv.appendChild(netReservationElement);
-
-  // クーポンURL（PC版）
-  const couponPcElement = document.createElement('a');
-  couponPcElement.textContent = 'クーポンURL(PC)';
-  couponPcElement.href = shop.coupon_urls.pc;
-  shopInfoDiv.appendChild(couponPcElement);
-
-  // クーポンURL（スマートフォン版）
-  const couponSpElement = document.createElement('a');
-  couponSpElement.textContent = 'クーポンURL(SP)';
-  couponSpElement.href = shop.coupon_urls.sp;
-  shopInfoDiv.appendChild(couponSpElement);
-
-  // 店舗写真（PC版）
-  const photoPcElement = document.createElement('img');
-  photoPcElement.src = shop.photo.pc.l;
-  shopInfoDiv.appendChild(photoPcElement);
-
-  // 店舗写真（モバイル版）
-  const photoMobileElement = document.createElement('img');
-  photoMobileElement.src = shop.photo.mobile.l;
-  shopInfoDiv.appendChild(photoMobileElement);
-
-  // 追加された店舗情報をresultDivに追加
-  resultDiv.appendChild(shopInfoDiv);
+//コンソールにデータを出力
+function bar(data) {
+  console.log(data);
 }
+
+bar(data);
+
+//通信を開始
+
+let b = document.querySelector('#sendRequest');
+b.addEventListener('click', sendRequest);
+
+
+// 通信を開始する処理
+// 検索ボタンのクリックイベントに対応するJavaScriptの関数
+document.getElementById("print").addEventListener("click", function() {
+  // 検索キーワードを入力フィールドから取得
+  const keyword = document.getElementById("find").value;
+
+  // 検索キーワードを使ってサーバーにPOSTリクエストを送信
+  axios.post("/search", { keyword })
+    .then(function(response) {
+      // レスポンスデータを使って検索結果を更新
+      document.getElementById("result").innerHTML = response.data;
+    })
+    .catch(function(error) {
+      // サーバーのリクエストが失敗した場合のエラーハンドリング
+      console.error(error);
+    });
+});
 
 
 
