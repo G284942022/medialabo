@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+<script src="gourmet.js"></script>
   <title>グルメ</title>
 </head>
 <body>
- 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
-    <div id="sendRequest"></div>
+  
+  <label for="kensaku">キーワード検索:</label>
+  <input type="text" name="word" id="find" size="10">
+  <button id="sendRequest">検索</button>
 
-  <div id="result">
+  <div>
 
     <tr>
       <h2>検索結果1件目</h2>
@@ -37,12 +40,9 @@
       <p>サブジャンル: ダイニングバー・バル</p>
     </tr>
 
-    <label for="kensaku">キーワード検索:</label>
-    <input type="text" name="word" id="find" size="10">
-    <button id="print">検索</button>
-  <script src="gourmet.js"></script>
-
   </div>
+
+  <div id="result"></div>
 </body>
 </html>
 
