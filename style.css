@@ -1,11 +1,13 @@
 h1 {
-    background-color: #dcdcdc;
+    background-color: #eaffbf;
+    text-align: center;
   }
 
 h2 {
-  background-color: #dcdcdc;
+  background-color: #aeaeae;
     opacity: 0;
     animation: fade-in 3s ease forwards;
+    text-align: center;
   }
 
 h2::after {
