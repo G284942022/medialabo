@@ -199,108 +199,52 @@ let data = {
   }
 };
 
-/////////// 課題3-2 ここからプログラムを書こう
+let p1 = document.querySelector('button#kekkawo');
+p1.addEventListener('click',sendRequest);
 
-//コンソールにデータを出力
-function bar(data) {
-  console.log(data);
-}
+let b = cn.getAttribute('value');
 
-bar(data);
-
-//通信を開始
-
-let genre; // genre変数を宣言
-
-document.addEventListener('DOMContentLoaded', function() {
-  let foo = 0;
-
-  document.getElementById('sendRequest').addEventListener('click', function() {
-    foo = 1;
-    console.log('fooの値:', foo);
-
-    // ボタンがクリックされたときにsendRequest関数を呼び出す
-    if (foo > 0) {
-      sendRequest();
-    }
-  });
-});
-
+// 通信を開始する処理
 function sendRequest() {
-  let searchInput = document.getElementById('find');
-  genre = encodeURIComponent(searchInput.value.trim()); // genre変数に値を設定
-  let url = `https://www.nishita-lab.org/web-contents/jsons/hotpepper/${genre}.json`;
+  // URL を設定
+  let p2 ='https://www.nishita-lab.org/web-contents/jsons/hotpepper/' + b() + '.json';
+  let url = p2
 
   // 通信開始
   axios.get(url)
-    .then(showResult)
-    .catch(showError)
-    .then(finish);
+      .then(showResult)   // 通信成功
+      .catch(showError)   // 通信失敗
+      .then(finish);      // 通信の最後の処理
 }
 
+// 通信が成功した時の処理
 function showResult(resp) {
-  // 応答データが適切なフォーマットであると仮定
-  let results = resp.data.results.shop;
+  // サーバから送られてきたデータを出力
+  let data = resp.data;
 
-  // データを処理し、検索結果を表示
-  let resultDiv = document.getElementById('result');
-  resultDiv.innerHTML = ''; // 以前の結果をクリア
+  // data が文字列型なら，オブジェクトに変換する
+  if (typeof data === 'string') {
+      data = JSON.parse(data);
+  }
 
-  results.forEach(function(item) {
-    let div = document.createElement('div');
+  // data をコンソールに出力
+  console.log(data);
 
-    // 各検索結果にコンテンツを作成して設定します
-    // データ構造に基づいてカスタマイズできます
-    let nameElem = document.createElement('h2');
-    nameElem.textContent = item.name;
-    div.appendChild(nameElem);
-
-    let accessElem = document.createElement('p');
-    accessElem.textContent = `アクセス: ${item.access}`;
-    div.appendChild(accessElem);
-
-    let addressElem = document.createElement('p');
-    addressElem.textContent = `住所: ${item.address}`;
-    div.appendChild(addressElem);
-
-    let budgetElem = document.createElement('p');
-    budgetElem.textContent = `予算: ${item.budget.name}`;
-    div.appendChild(budgetElem);
-
-    let catchElem = document.createElement('p');
-    catchElem.textContent = `キャッチコピー: ${item.catch}`;
-    div.appendChild(catchElem);
-
-    let genreElem = document.createElement('p');
-    genreElem.textContent = `ジャンル: ${item.genre.name}`;
-    div.appendChild(genreElem);
-
-    let openElem = document.createElement('p');
-    openElem.textContent = `営業日時: ${item.open}`;
-    div.appendChild(openElem);
-
-    let stationElem = document.createElement('p');
-    stationElem.textContent = `最寄駅: ${item.station_name}`;
-    div.appendChild(stationElem);
-
-    let subGenreElem = document.createElement('p');
-    subGenreElem.textContent = `サブジャンル: ${item.sub_genre.name}`;
-    div.appendChild(subGenreElem);
-
-    // 結果のdivをコンテナに追加
-    resultDiv.appendChild(div);
-  });
+  // data.x を出力
+  console.log(data.x);
 }
 
+// 通信エラーが発生した時の処理
 function showError(err) {
   console.log(err);
 }
 
+// 通信の最後にいつも実行する処理
 function finish() {
   console.log('Ajax 通信が終わりました');
 }
 
-
+let 
 
 
 
