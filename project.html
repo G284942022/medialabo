@@ -1,52 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
-<script src="gourmet.js"></script>
-  <title>グルメ</title>
-</head>
-<body>
-
-  <h1>グルメ情報検索サイト</h1>
-  
-  <label for="kensaku">キーワード検索:</label>
-  <button id="sendRequest">検索</button>
-
-    <tr>
-      <h2>検索結果1件目</h2>
-    </tr>
-    <tr>
-      <option value="">グルメ情報検索</option>
-      <option value="G001">居酒屋</option>
-      <option value="G002">ダイニングバー・バル</option>
-      <option value="G003">創作料理</option>
-      <option value="G004">和食</option>
-      <option value="G005">洋食</option>
-      <option value="G006">イタリアン・フレンチ</option>
-      <option value="G007">中華</option>
-      <option value="G008">焼肉・ホルモン</option>
-      <option value="G009">アジア・エスニック料理</option>
-      <option value="G010">各国料理</option>
-      <option value="G011">カラオケ・パーティ</option>
-      <option value="G012">バー・カクテル</option>
-      <option value="G013">ラーメン</option>
-      <option value="G014">カフェ・スイーツ</option>
-      <option value="G015">その他グルメ</option>
-      <option value="G016">お好み焼き・もんじゃ</option>
-      <option value="G017">韓国料理</option>
-   
-    </tr>
-
-    <span id="access">アクセス情報</span><br>
-    <span id="address">住所</span><br>
-    <span id="budget_name">予算</span><br>
-    <span id="catch">キャッチコピー</span><br>
-    <span id="genre_name">ジャンル</span><br>
-    <span id="name">店舗名</span><br>
-    <span id="open">営業日時</span><br>
-    <span id="station_name">最寄駅</span><br>
-    <span id="subgenre_name">サブジャンルの名前</span><br>
-
-</body>
+   <head>
+      <meta charset = "utf-8">
+      <title>天気の検索</title>
+      <link rel="stylesheet" href="project.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+      <script src="weather.js" defer></script>
+   </head>
+   <h1>世界の天気を検索してみよう！</h1>
+   <body>
+      <div id="weather-label">
+         <label for="search">天気の検索メニュー</label>
+         <select name="search" id="search">
+            <option value="">検索する場所を選べ</option>
+            <option value="360630">Cairo カイロ (エジプト)</option>
+            <option value="524901">Moscow モスクワ (ロシア)</option>
+            <option value="993800">Johannesburg ヨハネスブルク (南アフリカ)</option>
+            <option value="1816670">Beijing 北京 (中華人民共和国)</option>
+            <option value="1850147">Tokyo 東京 (日本)</option>
+            <option value="1880252">Singapore シンガポール</option>
+            <option value="2147714">Sydney シドニー (オーストラリア)</option>
+            <option value="2643743">London ロンドン (イギリス)</option>
+            <option value="2968815">Paris パリ (フランス)</option>
+            <option value="3451189">Rio de Janeiro リオデジャネイロ (ブラジル)</option>
+            <option value="5128581">New York ニューヨーク (アメリカ合衆国)</option>
+            <option value="5368361">Los Angeles ロサンゼルス (アメリカ合衆国)</option>
+         </select>
+         <button id="search-button">検索</button>
+      </div>
+      <h2>検索する都市:<span id='city-name'></span></h2>
+      <ul>
+         <li>緯度: <span id="latitude"></span></li>
+         <li>経度: <span id="longitude"></span></li>
+         <li>天気: <span id="weather-info"></span></li>
+         <li>最低気温: <span id="min-temperature"></span></li>
+         <li>最高気温: <span id="max-temperature"></span></li>
+         <li>湿度: <span id="humidity"></span></li>
+         <li>風速: <span id="wind-speed"></span></li>
+         <li>風向: <span id="wind-direction"></span></li>
+      </ul>
+   </body>
 </html>
-
