@@ -3,6 +3,7 @@ h1 {
   }
 
 h2 {
+  background-color: #dcdcdc;
     opacity: 0;
     animation: fade-in 3s ease forwards;
   }
